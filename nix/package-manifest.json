@@ -3,14 +3,14 @@
   "upstream": {
     "owner": "RogerNavelsaker",
     "repo": "toolflow-mcp",
-    "tag": null,
-    "rev": "b83f4a2e83ae0288e9d0d5b28b197a36603701a8",
-    "version": "0.1.0",
-    "hash": "sha256-mk3qawfkd9djJP2MYgFJrb8bUNwAv1cH1O74eMeJSa0="
+    "tag": "v0.2.0",
+    "rev": "4332f747b3c08355ea426b9dc7375eda10d7abb8",
+    "version": "0.2.0",
+    "hash": "sha256-Gk213kYyQrjpP2tt5mzJYecAqAN2ZlkgRNiAeSS96cY="
   },
   "package": {
     "revision": 1,
-    "version": "0.1.0-r1"
+    "version": "0.2.0-r1"
   },
   "binary": {
     "name": "toolflow",
@@ -22,4 +22,3 @@
     "licenseSpdx": "MIT"
   }
 }
-

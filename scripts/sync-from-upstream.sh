@@ -67,7 +67,10 @@ src_hash="$(
 )"
 
 version="$(jq -r '.version' "$tmpdir/upstream/package.json")"
-homepage="$(jq -r '.homepage // \"https://github.com/'"$owner"'/'"$repo"'#readme\"' "$tmpdir/upstream/package.json")"
+homepage="$(jq -r '.homepage // empty' "$tmpdir/upstream/package.json")"
+if [ -z "$homepage" ]; then
+  homepage="https://github.com/$owner/$repo#readme"
+fi
 license="$(jq -r '.license' "$tmpdir/upstream/package.json")"
 
 jq \
@@ -93,4 +96,3 @@ echo "updated:"
 echo "  manifest: $manifest_path"
 echo "  lockfile: $repo_root/bun.lock"
 echo "  deps nix: $repo_root/bun.nix"
-
