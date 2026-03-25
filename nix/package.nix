@@ -27,6 +27,10 @@ stdenv.mkDerivation {
   pname = manifest.binary.name;
   version = manifest.package.version or manifest.upstream.version;
   src = upstreamSrc;
+  outputs = [
+    "out"
+    "tf"
+  ];
 
   nativeBuildInputs = [
     bun
@@ -78,6 +82,10 @@ stdenv.mkDerivation {
     makeWrapper ${lib.getExe' bun "bun"} "$out/bin/${manifest.binary.name}" \
       --add-flags "$shareRoot/${manifest.binary.entrypoint}"
 
+    mkdir -p "$tf/bin"
+    makeWrapper ${lib.getExe' bun "bun"} "$tf/bin/tf" \
+      --add-flags "$shareRoot/bin/tf"
+
     runHook postInstall
   '';
 
@@ -90,4 +98,3 @@ stdenv.mkDerivation {
     broken = manifest.stubbed || !(builtins.pathExists ../bun.nix);
   };
 }
-

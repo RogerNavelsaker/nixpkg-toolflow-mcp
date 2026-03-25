@@ -34,18 +34,18 @@
       });
     in {
       packages = forAllSystems ({ pkgs }: {
-        default = pkgs.callPackage ./nix/package.nix { };
-        tf = pkgs.callPackage ./nix/package.nix { };
+        default = (pkgs.callPackage ./nix/package.nix { }).out;
+        tf = (pkgs.callPackage ./nix/package.nix { }).tf;
       });
 
       apps = forAllSystems ({ pkgs }: {
         default = {
           type = "app";
-          program = "${pkgs.callPackage ./nix/package.nix { }}/bin/toolflow";
+          program = "${(pkgs.callPackage ./nix/package.nix { }).out}/bin/toolflow";
         };
         tf = {
           type = "app";
-          program = "${pkgs.callPackage ./nix/package.nix { }}/bin/tf";
+          program = "${(pkgs.callPackage ./nix/package.nix { }).tf}/bin/tf";
         };
       });
 
