@@ -35,6 +35,18 @@
     in {
       packages = forAllSystems ({ pkgs }: {
         default = pkgs.callPackage ./nix/package.nix { };
+        tf = pkgs.callPackage ./nix/package.nix { };
+      });
+
+      apps = forAllSystems ({ pkgs }: {
+        default = {
+          type = "app";
+          program = "${pkgs.callPackage ./nix/package.nix { }}/bin/toolflow";
+        };
+        tf = {
+          type = "app";
+          program = "${pkgs.callPackage ./nix/package.nix { }}/bin/tf";
+        };
       });
 
       devShells = forAllSystems ({ pkgs }: {
@@ -49,4 +61,3 @@
       });
     };
 }
-
