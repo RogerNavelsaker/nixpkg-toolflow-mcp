@@ -78,7 +78,6 @@ stdenv.mkDerivation {
       "$shareRoot"/
 
     mkdir -p "$out/bin"
-    ln -s ${lib.getExe' bun "bun"} "$out/bin/bun"
     makeWrapper ${lib.getExe' bun "bun"} "$out/bin/${manifest.binary.name}" \
       --add-flags "$shareRoot/${manifest.binary.entrypoint}"
 
