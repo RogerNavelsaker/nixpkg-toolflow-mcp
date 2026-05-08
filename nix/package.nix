@@ -54,7 +54,9 @@ stdenv.mkDerivation {
     ];
 
   postPatch = ''
+    cp ${../package.json} package.json
     cp ${../bun.lock} bun.lock
+    chmod u+w bun.lock package.json
   '';
   dontBuild = true;
 
