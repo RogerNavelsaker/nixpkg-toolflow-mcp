@@ -1,6 +1,6 @@
 # nixpkg-toolflow-mcp
 
-Thin Nix and Flox packaging repo for the [`toolflow-mcp`](https://github.com/RogerNavelsaker/toolflow-mcp) Bun MCP server.
+Thin Nix packaging repo for the [`toolflow-mcp`](https://github.com/RogerNavelsaker/toolflow-mcp) Bun MCP server.
 
 This repo owns reproducible packaging only:
 
