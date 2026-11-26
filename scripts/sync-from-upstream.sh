@@ -56,8 +56,9 @@ echo "syncing $owner/$repo $tag ($rev)"
 git clone --depth 1 --branch "$tag" "https://github.com/$owner/$repo.git" "$tmpdir/upstream" >/dev/null 2>&1
 
 cp "$tmpdir/upstream/bun.lock" "$repo_root/bun.lock"
+cp "$tmpdir/upstream/package.json" "$repo_root/package.json"
 
-nix run github:nix-community/bun2nix?tag=2.0.8 -- \
+nix run github:nix-community/bun2nix/2.0.8 -- \
   -l "$repo_root/bun.lock" \
   -o "$repo_root/bun.nix"
 
