@@ -18,7 +18,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    bun2nix.url = "github:nix-community/bun2nix?tag=2.0.8";
+    bun2nix.url = "github:nix-community/bun2nix/2.0.8";
     bun2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -57,7 +57,7 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             bun
-            bun2nix
+            pkgs.bun2nix
             jq
             nixfmt-rfc-style
           ];
